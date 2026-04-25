@@ -64,7 +64,7 @@ def get_device_info(user_agent):
     
     return device, browser
 
-# Modern Dark Theme Homepage
+# Homepage HTML
 home_html = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +92,6 @@ home_html = '''
             padding: 2rem;
         }
         
-        /* Navigation */
         .nav {
             display: flex;
             justify-content: center;
@@ -112,7 +111,6 @@ home_html = '''
             color: #c4b5fd;
         }
         
-        /* Header */
         .header {
             text-align: center;
             margin-bottom: 3rem;
@@ -131,7 +129,6 @@ home_html = '''
             color: #94a3b8;
         }
         
-        /* Card */
         .card {
             background: rgba(30, 27, 75, 0.6);
             backdrop-filter: blur(10px);
@@ -140,7 +137,6 @@ home_html = '''
             border: 1px solid rgba(167, 139, 250, 0.2);
         }
         
-        /* Form */
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -166,7 +162,6 @@ home_html = '''
             color: #475569;
         }
         
-        /* Radio buttons */
         .option-group {
             display: flex;
             gap: 2rem;
@@ -208,7 +203,6 @@ home_html = '''
             font-size: 0.75rem;
         }
         
-        /* Button */
         .btn {
             width: 100%;
             padding: 1rem;
@@ -227,7 +221,6 @@ home_html = '''
             box-shadow: 0 10px 30px rgba(167, 139, 250, 0.3);
         }
         
-        /* Footer */
         .footer {
             text-align: center;
             margin-top: 2rem;
@@ -289,7 +282,8 @@ home_html = '''
 @app.route('/')
 def home():
     return home_html
-    @app.route('/health')
+
+@app.route('/health')
 def health():
     return "OK", 200
 
