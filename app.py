@@ -289,6 +289,9 @@ home_html = '''
 @app.route('/')
 def home():
     return home_html
+    @app.route('/health')
+def health():
+    return "OK", 200
 
 @app.route('/shorten', methods=['POST'])
 def shorten():
@@ -321,7 +324,7 @@ def shorten():
     conn.commit()
     conn.close()
     
-    short_url = f"http://172.20.10.7:5000/{short_code}"
+    short_url = request.host_url + short_code
     
     qr = qrcode.QRCode(box_size=10, border=2)
     qr.add_data(short_url)
@@ -442,7 +445,7 @@ def dashboard():
     rows = ""
     for url in all_urls:
         short_code, original_url, clicks, created_at = url
-        short_url = f"http://172.20.10.7:5000/{short_code}"
+        short_url = request.host_url + short_code
         rows += f'''
         <tr style="border-bottom: 1px solid rgba(167, 139, 250, 0.2);">
             <td style="padding: 12px;"><a href="{short_url}" style="color:#a78bfa;">{short_code}</a></td>
