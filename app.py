@@ -278,15 +278,12 @@ home_html = '''
 </body>
 </html>
 '''
-
 @app.route('/')
 def home():
     return home_html
-
 @app.route('/health')
 def health():
     return "OK", 200
-
 @app.route('/shorten', methods=['POST'])
 def shorten():
     original_url = request.form['url']
